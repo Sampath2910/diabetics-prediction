@@ -1,0 +1,29 @@
+from flask import Flask, render_template, request
+import pickle
+import numpy as np
+
+app = Flask(__name__)
+
+# Load trained model
+model = pickle.load(open('diabetes_model.pkl', 'rb'))
+
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    values = [float(x) for x in request.form.values()]
+    final_input = np.array(values).reshape(1, -1)
+
+    prediction = model.predict(final_input)
+
+    if prediction[0] == 1:
+        result = "You are likely to have Diabetes"
+    else:
+        result = "You are not likely to have Diabetes"
+
+    return render_template('result.html', result=result)
+
+if __name__ == "__main__":
+    app.run()
