@@ -85,3 +85,23 @@ button:hover {
     color: #26a69a;
     font-weight: bold;
 }
+
+/* Green Result Card */
+.not-diabetic {
+    border-left: 8px solid #2e7d32;
+    background: #e8f5e9;
+}
+
+.not-diabetic h2 {
+    color: #2e7d32;
+}
+
+/* Red Result Card */
+.diabetic {
+    border-left: 8px solid #c62828;
+    background: #ffebee;
+}
+
+.diabetic h2 {
+    color: #c62828;
+}

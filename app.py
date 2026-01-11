@@ -1,6 +1,8 @@
+from unittest import result
 from flask import Flask, render_template, request
 import pickle
 import numpy as np
+from streamlit import status
 
 app = Flask(__name__)
 
@@ -20,10 +22,13 @@ def predict():
 
     if prediction[0] == 1:
         result = "You are likely to have Diabetes"
+        status = "diabetic"
     else:
         result = "You are not likely to have Diabetes"
+        status = "not-diabetic"
 
-    return render_template('result.html', result=result)
+    return render_template('result.html', result=result, status=status)
+
 
 if __name__ == "__main__":
     app.run()
