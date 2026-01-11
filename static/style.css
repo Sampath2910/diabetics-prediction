@@ -48,6 +48,11 @@ form input:focus {
     border-color: #26a69a;
 }
 
+input::placeholder {
+    color: #999;
+    font-size: 13px;
+}
+
 button {
     width: 100%;
     padding: 12px;
@@ -79,9 +84,4 @@ button:hover {
     text-decoration: none;
     color: #26a69a;
     font-weight: bold;
-}
-
-input::placeholder {
-    color: #999;
-    font-size: 13px;
 }
