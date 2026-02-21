@@ -1,8 +1,6 @@
-from unittest import result
 from flask import Flask, render_template, request
 import pickle
 import numpy as np
-from streamlit import status
 
 app = Flask(__name__)
 
@@ -32,3 +30,4 @@ def predict():
 
 if __name__ == "__main__":
     app.run()
+    
